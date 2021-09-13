@@ -1,6 +1,11 @@
 #!/usr/bin/env node
 import * as cdk from '@aws-cdk/core';
-import { CodebuildCdkDeployStack } from '../lib/codebuild_cdk_deploy-stack';
+import { SampleAppStack } from '../lib/sample-app-stack';
+import { IamUserStack } from '../lib/iam-user-stack';
+import { CdkDeployCodeBuildStack } from '../lib/cdk-deploy-codebuildt';
 
 const app = new cdk.App();
-new CodebuildCdkDeployStack(app, 'CodebuildCdkDeployStack');
+
+new SampleAppStack(app, 'SampleAppStack');
+new IamUserStack(app, 'IamUserStack')
+new CdkDeployCodeBuildStack(app, 'CdkDeployCodeBuildStack')
